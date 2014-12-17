@@ -1,6 +1,5 @@
-# rxscalaz
+# rxscalaz [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/everpeace/rxscalaz?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/everpeace/rxscalaz?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This provides some useful type class instances for `Observable`.  Therefore you can apply scalaz's fancy operators to `Observable`.
 
 Provided type class instances are `Monoid`, `Monad`, `MonadPlus`, `Traverse`, `Foldable`, etc.
