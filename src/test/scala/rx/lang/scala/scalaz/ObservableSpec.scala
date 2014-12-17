@@ -2,6 +2,7 @@ package rx.lang.scala.scalaz
 
 import org.junit.runner.RunWith
 import org.scalacheck.Prop._
+import org.scalacheck.Properties
 import org.specs2.runner.JUnitRunner
 import org.specs2.scalaz.Spec
 import rx.lang.scala.Observable
@@ -22,7 +23,9 @@ class ObservableSpec extends Spec {
   checkAll(isEmpty.laws[Observable])
   checkAll(traverse.laws[Observable])
 
-  forAll { (ob: Observable[Int], f: Int => Int) =>
-    (ob <*|*> (_ map f)) === (ob zip (ob map f))
-  }
+  checkAll(new Properties("zip operator <*|*>") {
+    property("should work equivalently with Observable.zip") = forAll { (ob: Observable[Int], f: Int => Int) =>
+      (ob <*|*> (_ map f)) === (ob zip (ob map f))
+    }
+  })
 }
